@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Food Form</title>
+    <script>
+        function validateForm() {
+            var email = document.forms["contactForm"]["email"].value;
+            var phone = document.forms["contactForm"]["phone"].value;
+            if (email == "" && phone == "") {
+                alert("Please enter either an email or phone number.");
+                return false;
+            }
+        }
+    </script>
+
+<style>
+    body {
+        background-color: #4B2E83;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+    form {
+        background-color: #FFFFFF;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input {
+        width: 200px;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button {
+        background-color: #B7A57A;
+        color: #4B2E83;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #4B2E83;
+        color: #B7A57A;
+    }
+</style>
+
+</head>
+<body>
+    <form name="contactForm" onsubmit="return validateForm()" style="display: flex; flex-direction: column; align-items: center;">
+        <input type="email" name="email" placeholder="Email"  style="margin-bottom: 10px;">  <!-- required attribute added -->
+        <input type="tel" name="phone" placeholder="Phone Number" pattern="\d{10}" title="Please enter exactly 10 digits"  style="margin-bottom: 20px;">  <!-- required attribute added -->
+        <!-- <button type="submit" style="background-color: #B7A57A; color: #4B2E83;">Submit</button> -->
+        <button id="submit" style="background-color: #B7A57A; color: #4B2E83;">Submit</button>
+    </form>
+    <script>
+        let form = document.querySelector("form");
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let data = new FormData(form);
+            fetch("https://script.google.com/macros/s/AKfycbx8vHY1iTCKFfS_Tv2Xn1mLfzHBWk51fSeVBOh_xWzrXTpYwydwzDpuNoj0ZET3Zlrs/exec", {method: "POST", body: data})
+                .then(res => res.text())
+                .then(data => console.log(data));
+        })
+    </script>
+</body>
+</html>

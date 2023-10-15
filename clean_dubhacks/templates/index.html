@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hungry Husky</title>
+    <!-- Add your CSS styling here -->
+    <style>
+        body {
+            background-color: #714AAD;  /* UW Purple */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .center-logo img {
+            width: 500px;  /* Adjust size to your preference */
+        }
+        button-container {
+            display: flex;
+            gap: 40px;
+        }
+        button {
+            background-color: #e8e3d3;  /* UW Gold */
+            color: #4B2E83;  /* UW Purple */
+            border: none;
+            padding: 30px 60px;
+            font-size: 32px;
+            cursor: pointer;
+            border-radius: 20px;
+        }
+        button:hover {
+            background-color: #B7A57A;  /* UW Purple */
+            color: #85754d;  /* UW Gold */
+        }
+    </style>
+</head>
+<body>
+    <div class="center-logo">
+        <img src="https://i.ibb.co/CW76V3r/pic1.png" alt="Hungry Husky Logo">
+    </div>
+    <div class="button-container">
+        <button id="signup">Sign UP!</button>
+        <button id="livefood">Live Food Locations</button>
+        <button id="sharefood">Share Food </button>
+        <!-- <a href="index2"><button type="button" class="button">Sign UP!</button></a>
+        <a href="index1"><button type="button" class="button">Share Food</button></a> -->
+        <a href="https://www.washington.edu/anyhungryhusky/" target="_blank"><button type="button" class="button">Resources</button></a>
+    </div>
+    <script>
+        document.getElementById("signup").addEventListener("click", function(){
+            location.href = "index2";
+        });
+        document.getElementById("livefood").addEventListener("click", function(){
+            location.href = "map";
+        })
+        document.getElementById("sharefood").addEventListener("click", function(){
+            location.href = "index1";
+        });
+    </script>
+</body></html>
